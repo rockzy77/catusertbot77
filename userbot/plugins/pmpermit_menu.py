@@ -14,21 +14,12 @@ from . import ALIVE_NAME, PM_START, PMMESSAGE_CACHE, set_key
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "cat"
 PREV_REPLY_MESSAGE = {}
-PM = f"""Hello. You are accessing the availabe menu of my master, {DEFAULTUSER}.
-__Let's make this smooth and let me know why you are here.__
-**Choose one of the following reasons why you are here:**
-
-`a`. To chat with my master
-`b`. To spam my master's inbox.
-`c`. To enquire something
-`d`. To request something\n"""
-ONE = """__Okay. Your request has been registered. Do not spam my master's inbox.You can expect a reply within next few years. He/She is a busy man, unlike you probably.__
-
-**⚠️ You will be blocked and reported if you spam. ⚠️**\n\n"""
+PM = f"""Hello. Rockzy is nowdays too strict in handling his pms. If you wanna continue chat with him reply with his real name."""
+ONE = """Great, Ali will be in touch with you very soon"""
 TWO = " `███████▄▄███████████▄  \n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓███░░░░░░░░░░░░█\n██████▀▀▀█░░░░██████▀  \n░░░░░░░░░█░░░░█  \n░░░░░░░░░░█░░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░░▀▀ `\n\n**So uncool, this is not your home. Go bother someone else. You have been blocked and reported until further notice.**"
-THREE = "__Okay. My master has not seen your message yet.He/She usually responds to people,though idk about retarted ones.__\n __He'll respond when he/she comes back, if he/she wants to.There's already a lot of pending messages😶__\n **Please do not spam unless you wish to be blocked and reported.**"
-FOUR = "`Okay. please have the basic manners as to not bother my master too much. If he/she wishes to help you, he/she will respond to you soon.`\n**Do not ask repeatdly else you will be blocked and reported.**"
-LWARN = "**This is your last warning. DO NOT send another message else you will be blocked and reported. Keep patience. My master will respond you ASAP.**\n"
+THREE = "__Okay. Rockzy has not seen your message yet.He usually responds to people,though idk about retarted ones.__\n __He'll respond when he/she comes back, if he wants to.There's already a lot of pending messages😶__\n **Please do not spam unless you wish to be blocked and reported.**"
+FOUR = "`Okay. please have the basic manners as to not bother rockzy too much. If he wishes to help you, he will respond to you soon.`\n**Do not ask repeatdly else you will be blocked and reported.**"
+LWARN = "**This is your last warning. DO NOT send another message else you will be blocked and reported. Keep patience. Rockzy will respond you ASAP.**\n"
 
 
 @bot.on(events.NewMessage(pattern=r"\/start", incoming=True))
@@ -52,7 +43,7 @@ async def _(event):
                 chat_id = event.sender_id
                 response = await conv.get_response(chat)
                 y = response.text
-                if y == "a" or "A":
+                if y == "ali" or "Ali" or "ALI" or "aLi" or "ALi" or "aLI" or "AlI" or "ALi":
                     if pmpermit_sql.is_approved(chat_id):
                         return
                     set_key(PMMESSAGE_CACHE, event.chat_id, response.id)
@@ -74,71 +65,15 @@ async def _(event):
                             set_key(PMMESSAGE_CACHE, event.chat_id, test4.id)
                             await asyncio.sleep(3)
                             await event.client(functions.contacts.BlockRequest(chat_id))
-                elif y == "b" or "B":
-                    if pmpermit_sql.is_approved(chat_id):
-                        return
-                    set_key(PMMESSAGE_CACHE, event.chat_id, response.id)
-                    test5 = await event.client.send_message(chat, LWARN)
-                    set_key(PMMESSAGE_CACHE, event.chat_id, test5.id)
-                    response = await conv.get_response(chat)
-                    if response.text != "/start":
-                        if pmpermit_sql.is_approved(chat_id):
-                            return
-                        set_key(PMMESSAGE_CACHE, event.chat_id, response.id)
-                        test6 = await event.client.send_message(chat, TWO)
-                        set_key(PMMESSAGE_CACHE, event.chat_id, test6.id)
-                        await asyncio.sleep(3)
-                        await event.client(functions.contacts.BlockRequest(chat_id))
-                elif y == "c" or "C":
-                    if pmpermit_sql.is_approved(chat_id):
-                        return
-                    set_key(PMMESSAGE_CACHE, event.chat_id, response.id)
-                    test7 = await event.client.send_message(chat, THREE)
-                    set_key(PMMESSAGE_CACHE, event.chat_id, test7.id)
-                    response = await conv.get_response(chat)
-                    if response.text != "/start":
-                        if pmpermit_sql.is_approved(chat_id):
-                            return
-                        set_key(PMMESSAGE_CACHE, event.chat_id, response.id)
-                        test8 = await event.client.send_message(chat, LWARN)
-                        set_key(PMMESSAGE_CACHE, event.chat_id, test8.id)
-                        response = await conv.get_response(chat)
-                        if response.text != "/start":
-                            if pmpermit_sql.is_approved(chat_id):
-                                return
-                            set_key(PMMESSAGE_CACHE, event.chat_id, response.id)
-                            test9 = await event.client.send_message(chat, TWO)
-                            set_key(PMMESSAGE_CACHE, event.chat_id, test9.id)
-                            await asyncio.sleep(3)
-                            await event.client(functions.contacts.BlockRequest(chat_id))
-                elif y == "d" or "D":
-                    if pmpermit_sql.is_approved(chat_id):
-                        return
-                    set_key(PMMESSAGE_CACHE, event.chat_id, response.id)
-                    test10 = await event.client.send_message(chat, FOUR)
-                    set_key(PMMESSAGE_CACHE, event.chat_id, test10.id)
-                    response = await conv.get_response(chat)
-                    if response.text != "/start":
-                        if pmpermit_sql.is_approved(chat_id):
-                            return
-                        set_key(PMMESSAGE_CACHE, event.chat_id, response.id)
-                        test11 = await event.client.send_message(chat, LWARN)
-                        set_key(PMMESSAGE_CACHE, event.chat_id, test11.id)
-                        response = await conv.get_response(chat)
-                        if response.text != "/start":
-                            if pmpermit_sql.is_approved(chat_id):
-                                return
-                            set_key(PMMESSAGE_CACHE, event.chat_id, response.id)
-                            await event.client.send_message(chat, TWO)
-                            await asyncio.sleep(3)
-                            await event.client(functions.contacts.BlockRequest(chat_id))
                 else:
                     if pmpermit_sql.is_approved(chat_id):
                         return
                     test12 = await event.client.send_message(
                         chat,
-                        "You have entered an invalid command. Please send `/start` again or do not send another message if you do not wish to be blocked and reported.",
+                        "Sorry, its clear that you dont know rockzy's real name. Talk with him in any common group to know if he is interested in talking with you. But now I have decided to block you till you know his real name.",
                     )
+                    await asyncio.sleep(3)
+                    await event.client(functions.contacts.BlockRequest(chat_id))
                     set_key(PMMESSAGE_CACHE, event.chat_id, test12.id)
                     response = await conv.get_response(chat)
                     z = response.text
