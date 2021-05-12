@@ -43,7 +43,16 @@ async def _(event):
                 chat_id = event.sender_id
                 response = await conv.get_response(chat)
                 y = response.text
-                if y == "ali" or "Ali" or "ALI" or "aLi" or "ALi" or "aLI" or "AlI" or "ALi":
+                if (
+                    y == "ali"
+                    or "Ali"
+                    or "ALI"
+                    or "aLi"
+                    or "ALi"
+                    or "aLI"
+                    or "AlI"
+                    or "ALi"
+                ):
                     if pmpermit_sql.is_approved(chat_id):
                         return
                     set_key(PMMESSAGE_CACHE, event.chat_id, response.id)
