@@ -14,7 +14,7 @@ from . import ALIVE_NAME, PM_START, PMMESSAGE_CACHE, set_key
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "cat"
 PREV_REPLY_MESSAGE = {}
-PM = f"""Hello. Rockzy is nowdays too strict in handling his pms. If you wanna continue chat with him reply with his real name."""
+PM = f"""Nowadays Rockzy is too strict on handling his pms. If you wish to continue chat with him reply with his real name."""
 ONE = """Great, Ali will be in touch with you very soon"""
 TWO = " `███████▄▄███████████▄  \n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓███░░░░░░░░░░░░█\n██████▀▀▀█░░░░██████▀  \n░░░░░░░░░█░░░░█  \n░░░░░░░░░░█░░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░░▀▀ `\n\n**So uncool, this is not your home. Go bother someone else. You have been blocked and reported until further notice.**"
 THREE = "__Okay. Rockzy has not seen your message yet.He usually responds to people,though idk about retarted ones.__\n __He'll respond when he/she comes back, if he wants to.There's already a lot of pending messages😶__\n **Please do not spam unless you wish to be blocked and reported.**"
@@ -77,7 +77,7 @@ async def _(event):
                         return
                     test12 = await event.client.send_message(
                         chat,
-                        "Sorry, its clear that you dont know rockzy's real name. Talk with him in any common group to know if he is interested in talking with you. But now I have decided to block you till you know his real name.",
+                        "Sorry, its clear that you dont know rockzy's real name. Talk with him in any common group to know if he is interested in chatting with you. But right now I have decided to block you till you know his real name.",
                     )
                     set_key(PMMESSAGE_CACHE, event.chat_id, test12.id)
                     await asyncio.sleep(3)
