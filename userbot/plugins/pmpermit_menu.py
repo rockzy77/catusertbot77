@@ -43,7 +43,7 @@ async def _(event):
                 chat_id = event.sender_id
                 response = await conv.get_response(chat)
                 y = response.text
-                if y == "ali" or y == "Ali":
+                if y == "ali" or y == "Ali" or y == "aLI" or y == "AlI" or y == "ALi" or y == "AlI":
                     if pmpermit_sql.is_approved(chat_id):
                         return
                     set_key(PMMESSAGE_CACHE, event.chat_id, response.id)
@@ -72,9 +72,9 @@ async def _(event):
                         chat,
                         "Sorry, its clear that you dont know rockzy's real name. Talk with him in any common group to know if he is interested in talking with you. But now I have decided to block you till you know his real name.",
                     )
+                    set_key(PMMESSAGE_CACHE, event.chat_id, test12.id)
                     await asyncio.sleep(3)
                     await event.client(functions.contacts.BlockRequest(chat_id))
-                    set_key(PMMESSAGE_CACHE, event.chat_id, test12.id)
                     response = await conv.get_response(chat)
                     z = response.text
                     if z != "/start":
