@@ -14,7 +14,7 @@ from . import ALIVE_NAME, PM_START, PMMESSAGE_CACHE, set_key
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "cat"
 PREV_REPLY_MESSAGE = {}
-PM = f"""Nowadays Rockzy is too strict on handling his pms. If you wish to continue chat with him reply with his real name."""
+PM = f"""Nowadays Rockzy is too strict on handling his pms. If you wish to continue chat with him, reply with his real name."""
 ONE = """Great, Ali will be in touch with you very soon"""
 TWO = " `███████▄▄███████████▄  \n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓███░░░░░░░░░░░░█\n██████▀▀▀█░░░░██████▀  \n░░░░░░░░░█░░░░█  \n░░░░░░░░░░█░░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░░▀▀ `\n\n**So uncool, this is not your home. Go bother someone else. You have been blocked and reported until further notice.**"
 THREE = "__Okay. Rockzy has not seen your message yet.He usually responds to people,though idk about retarted ones.__\n __He'll respond when he/she comes back, if he wants to.There's already a lot of pending messages😶__\n **Please do not spam unless you wish to be blocked and reported.**"
