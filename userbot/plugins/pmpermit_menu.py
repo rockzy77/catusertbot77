@@ -44,14 +44,7 @@ async def _(event):
                 response = await conv.get_response(chat)
                 y = response.text
                 if (
-                    y == "ali"
-                    or "Ali"
-                    or "ALI"
-                    or "aLi"
-                    or "ALi"
-                    or "aLI"
-                    or "AlI"
-                    or "ALi"
+                    y == "ali" or y == "Ali"
                 ):
                     if pmpermit_sql.is_approved(chat_id):
                         return
