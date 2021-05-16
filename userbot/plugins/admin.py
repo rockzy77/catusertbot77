@@ -136,7 +136,7 @@ async def promote(promt):
         return
     try:
         await promt.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
-        await catevent.edit("`Promoted Successfully! Now gib Party`")
+        await catevent.edit("`Succesfully Promoted! Now go kick some ass..`")
     except BadRequestError:
         await catevent.edit(NO_PERM)
         return
@@ -183,7 +183,7 @@ async def demote(dmod):
     except BadRequestError:
         await catevent.edit(NO_PERM)
         return
-    await catevent.edit("`Demoted Successfully! Betterluck next time`")
+    await catevent.edit("`Demoted Successfully! Now go watch some shits`")
     if BOTLOG:
         await dmod.client.send_message(
             BOTLOG_CHATID,
@@ -228,11 +228,11 @@ async def ban(bon):
         return
     if reason:
         await catevent.edit(
-            f"{_format.mentionuser(user.first_name ,user.id)}` is banned !!`\n**Reason : **`{reason}`"
+            f"{_format.mentionuser(user.first_name ,user.id)}` is banned by rockzy. Oh my gwad rockzy's face is red.. !!`\n**Reason : **`{reason}`"
         )
     else:
         await catevent.edit(
-            f"{_format.mentionuser(user.first_name ,user.id)} `is banned !!`"
+            f"{_format.mentionuser(user.first_name ,user.id)} `is banned by rockzy. Oh my gwad rockzy's face is red..!!`"
         )
     if BOTLOG:
         await bon.client.send_message(
@@ -266,7 +266,7 @@ async def nothanos(unbon):
     try:
         await unbon.client(EditBannedRequest(unbon.chat_id, user.id, UNBAN_RIGHTS))
         await catevent.edit(
-            f"{_format.mentionuser(user.first_name ,user.id)} `is Unbanned Successfully. Granting another chance.`"
+            f"{_format.mentionuser(user.first_name ,user.id)} `is Unbanned Successfully. Now behave nice, cuz rockzy is a very angry master.`"
         )
         if BOTLOG:
             await unbon.client.send_message(
@@ -309,7 +309,7 @@ async def startmute(event):
         except Exception as e:
             await event.edit(f"**Error **\n`{str(e)}`")
         else:
-            await event.edit("`Successfully muted that person.\n**｀-´)⊃━☆ﾟ.*･｡ﾟ **`")
+            await event.edit("`Successfully muted that person. Rockzy is too angry on you\n**｀-´)⊃━☆ﾟ.*･｡ﾟ **`")
         if BOTLOG:
             await event.client.send_message(
                 BOTLOG_CHATID,
@@ -407,7 +407,7 @@ async def endmute(event):
             await event.edit(f"**Error **\n`{str(e)}`")
         else:
             await event.edit(
-                "`Successfully unmuted that person\n乁( ◔ ౪◔)「    ┑(￣Д ￣)┍`"
+                "`Successfully unmuted that person. Still rockzy is angry on you. Make him happy.\n乁( ◔ ౪◔)「    ┑(￣Д ￣)┍`"
             )
         if BOTLOG:
             await event.client.send_message(
