@@ -309,7 +309,9 @@ async def startmute(event):
         except Exception as e:
             await event.edit(f"**Error **\n`{str(e)}`")
         else:
-            await event.edit("`Successfully muted that person. Rockzy is too angry on you\n**｀-´)⊃━☆ﾟ.*･｡ﾟ **`")
+            await event.edit(
+                "`Successfully muted that person. Rockzy is too angry on you\n**｀-´)⊃━☆ﾟ.*･｡ﾟ **`"
+            )
         if BOTLOG:
             await event.client.send_message(
                 BOTLOG_CHATID,

@@ -1,10 +1,4 @@
-import asyncio
-
-from telethon import events, functions
-
-import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
-
-from . import ALIVE_NAME, PM_START, PMMESSAGE_CACHE, set_key
+from telethon import events
 
 PM = "heeeee"
 
@@ -13,6 +7,6 @@ PM = "heeeee"
 async def _(event):
     if event.fwd_from:
         return
-    chat_id = event.sender_id
-    chat = await event.get_chat()    
-    test1 = await event.client.send_message(chat, PM)    
+    event.sender_id
+    chat = await event.get_chat()
+    await event.client.send_message(chat, PM)
